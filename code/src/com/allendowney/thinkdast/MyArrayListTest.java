@@ -1,11 +1,13 @@
 package com.allendowney.thinkdast;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
 //import static org.junit.Assert.*;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
-import static org.hamcrest.CoreMatchers.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -91,8 +93,11 @@ public class MyArrayListTest {
 	@Test
 	public void testAddAllCollectionOfQextendsT() {
 		mylist.addAll(list);
+		//System.out.println(Arrays.toString(mylist.toArray()));
 		mylist.addAll(list);
+		//System.out.println(Arrays.toString(mylist.toArray()));
 		mylist.addAll(list);
+		//System.out.println(Arrays.toString(mylist.toArray()));
 		assertThat(mylist.size(), is(12));
 		assertThat(mylist.get(5), is(new Integer(3)));
 	}
@@ -195,13 +200,13 @@ public class MyArrayListTest {
 		assertThat(flag, equalTo(true));
 		assertThat(mylist.size(), is(2));
 		assertThat(mylist.get(1), is(new Integer(3)));
-		//System.out.println(Arrays.toString(mal.toArray()));
+		//System.out.println("1) " + Arrays.toString(mylist.toArray()));
 
 		flag = mylist.remove(new Integer(1));
 		assertThat(flag, equalTo(true));
 		assertThat(mylist.size(), is(1));
 		assertThat(mylist.get(0), is(new Integer(3)));
-		//System.out.println(Arrays.toString(mal.toArray()));
+		//System.out.println(Arrays.toString(mylist.toArray()));
 
 		flag = mylist.remove(new Integer(5));
 		assertThat(flag, equalTo(false));
@@ -221,8 +226,11 @@ public class MyArrayListTest {
 	@Test
 	public void testRemoveInt() {
 		Integer val = mylist.remove(1);
+		//System.out.println(Arrays.toString(mylist.toArray()));
+		//System.out.println(mylist.size());
 		assertThat(val, is(new Integer(2)));
 		assertThat(mylist.size(), is(2));
+		//System.out.println(mylist.size());
 		assertThat(mylist.get(1), is(new Integer(3)));
 	}
 
