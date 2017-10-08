@@ -45,7 +45,7 @@ public class MyArrayList<T> implements List<T> {
 			// make a bigger array and copy over the elements
 			@SuppressWarnings("unchecked")
 			T[] bigger = (T[]) new Object[array.length * 2];
-			System.arraycopy(array, 0, bigger, 0, size);
+			System.arraycopy(array, 0, bigger, 0, array.length);
 			array = bigger;
 		}
 		array[size] = element;
@@ -201,12 +201,10 @@ public class MyArrayList<T> implements List<T> {
 		T previous = array[index];
 		@SuppressWarnings("unchecked")
 		T[] copy = (T[]) new Object[array.length];
-		// if (index == 0) {
-		// System.arraycopy(array, 1, copy, 0, size);
-		// }
+
 		System.arraycopy(array, 0, copy, 0, index);
 		for (int i = size - 1; i > index; i--) {
-			copy[i-1] = array[i];
+			copy[i - 1] = array[i];
 		}
 		array = copy;
 		size--;
@@ -229,10 +227,7 @@ public class MyArrayList<T> implements List<T> {
 
 	@Override
 	public T set(int index, T element) {
-		if (index < 0 || index >= size && size != 0) {
-			throw new IndexOutOfBoundsException();
-		}
-		T previous = array[index];
+		T previous = this.get(index);
 		array[index] = element;
 		return previous;
 	}

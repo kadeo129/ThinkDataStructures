@@ -7,7 +7,6 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -22,7 +21,6 @@ public class MyArrayListTest {
 
 	protected List<Integer> mylist;
 	protected List<Integer> list;
-
 
 	/**
 	 * @throws java.lang.Exception
@@ -54,7 +52,7 @@ public class MyArrayListTest {
 		for (int i = 4; i < 20; i++) {
 			mylist.add(i);
 		}
-		//System.out.println(Arrays.toString(mal.toArray()));
+		// System.out.println(Arrays.toString(mal.toArray()));
 		assertThat(mylist.get(18), is(new Integer(19)));
 	}
 
@@ -64,26 +62,28 @@ public class MyArrayListTest {
 	@Test
 	public void testAddIntT() {
 		mylist.add(1, 5);
-		//System.out.println(Arrays.toString(mal.toArray()));
+		// System.out.println(Arrays.toString(mal.toArray()));
 		assertThat(mylist.get(1), is(new Integer(5)));
 		assertThat(mylist.size(), is(4));
 
 		try {
-		    mylist.set(-1, 0);
-		    fail();
-		} catch (IndexOutOfBoundsException e) {} // good
+			mylist.set(-1, 0);
+			fail();
+		} catch (IndexOutOfBoundsException e) {
+		} // good
 
 		try {
-		    mylist.set(4, 0);
-		    fail();
-		} catch (IndexOutOfBoundsException e) {} // good
+			mylist.set(4, 0);
+			fail();
+		} catch (IndexOutOfBoundsException e) {
+		} // good
 
 		mylist.add(0, 6);
-		//System.out.println(Arrays.toString(mal.toArray()));
+		// System.out.println(Arrays.toString(mal.toArray()));
 		assertThat(mylist.get(0), is(6));
 
 		mylist.add(5, 7);
-		//System.out.println(Arrays.toString(mal.toArray()));
+		// System.out.println(Arrays.toString(mal.toArray()));
 		assertThat(mylist.get(5), is(new Integer(7)));
 	}
 
@@ -93,11 +93,11 @@ public class MyArrayListTest {
 	@Test
 	public void testAddAllCollectionOfQextendsT() {
 		mylist.addAll(list);
-		//System.out.println(Arrays.toString(mylist.toArray()));
+		// System.out.println(Arrays.toString(mylist.toArray()));
 		mylist.addAll(list);
-		//System.out.println(Arrays.toString(mylist.toArray()));
+		// System.out.println(Arrays.toString(mylist.toArray()));
 		mylist.addAll(list);
-		//System.out.println(Arrays.toString(mylist.toArray()));
+		// System.out.println(Arrays.toString(mylist.toArray()));
 		assertThat(mylist.size(), is(12));
 		assertThat(mylist.get(5), is(new Integer(3)));
 	}
@@ -200,24 +200,24 @@ public class MyArrayListTest {
 		assertThat(flag, equalTo(true));
 		assertThat(mylist.size(), is(2));
 		assertThat(mylist.get(1), is(new Integer(3)));
-		//System.out.println("1) " + Arrays.toString(mylist.toArray()));
+		// System.out.println("1) " + Arrays.toString(mylist.toArray()));
 
 		flag = mylist.remove(new Integer(1));
 		assertThat(flag, equalTo(true));
 		assertThat(mylist.size(), is(1));
 		assertThat(mylist.get(0), is(new Integer(3)));
-		//System.out.println(Arrays.toString(mylist.toArray()));
+		// System.out.println(Arrays.toString(mylist.toArray()));
 
 		flag = mylist.remove(new Integer(5));
 		assertThat(flag, equalTo(false));
 		assertThat(mylist.size(), is(1));
 		assertThat(mylist.get(0), is(new Integer(3)));
-		//System.out.println(Arrays.toString(mal.toArray()));
+		// System.out.println(Arrays.toString(mal.toArray()));
 
 		flag = mylist.remove(new Integer(3));
 		assertThat(flag, equalTo(true));
 		assertThat(mylist.size(), is(0));
-		//System.out.println(Arrays.toString(mal.toArray()));
+		// System.out.println(Arrays.toString(mal.toArray()));
 	}
 
 	/**
@@ -226,11 +226,11 @@ public class MyArrayListTest {
 	@Test
 	public void testRemoveInt() {
 		Integer val = mylist.remove(1);
-		//System.out.println(Arrays.toString(mylist.toArray()));
-		//System.out.println(mylist.size());
+		// System.out.println(Arrays.toString(mylist.toArray()));
+		// System.out.println(mylist.size());
 		assertThat(val, is(new Integer(2)));
 		assertThat(mylist.size(), is(2));
-		//System.out.println(mylist.size());
+		// System.out.println(mylist.size());
 		assertThat(mylist.get(1), is(new Integer(3)));
 	}
 
@@ -262,18 +262,20 @@ public class MyArrayListTest {
 		assertThat(mylist.get(0), is(new Integer(6)));
 		assertThat(mylist.get(1), is(new Integer(5)));
 		assertThat(mylist.get(2), is(new Integer(7)));
-		//System.out.println(Arrays.toString(mal.toArray()));
+		// System.out.println(Arrays.toString(mal.toArray()));
 
 		try {
-		    mylist.set(-1, 0);
-		    fail();
-		} catch (IndexOutOfBoundsException e) {} // good
+			mylist.set(-1, 0);
+			fail();
+		} catch (IndexOutOfBoundsException e) {
+		} // good
 
 		try {
-		    mylist.set(4, 0);
-		    fail();
-		} catch (IndexOutOfBoundsException e) {} // good
-}
+			mylist.set(4, 0);
+			fail();
+		} catch (IndexOutOfBoundsException e) {
+		} // good
+	}
 
 	/**
 	 * Test method for {@link MyArrayList#size()}.
@@ -299,7 +301,7 @@ public class MyArrayListTest {
 	@Test
 	public void testToArray() {
 		Object[] array = mylist.toArray();
-		assertThat((Integer)array[0], is(new Integer(1)));
+		assertThat((Integer) array[0], is(new Integer(1)));
 	}
 
 }
