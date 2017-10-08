@@ -85,7 +85,6 @@ public class MyLinkedList<E> implements List<E> {
 
 	@Override
 	public void add(int index, E element) {
-
 		Node newNode = new Node(element);
 		if (index == 0) {
 			Node node = head;
@@ -168,9 +167,6 @@ public class MyLinkedList<E> implements List<E> {
 
 	@Override
 	public int indexOf(Object target) {
-		if (equals(target, head.data)) {
-			return 0;
-		}
 		int counter = 0;
 		Node node = head;
 		for (; node.next != null; node = node.next) {
@@ -249,7 +245,7 @@ public class MyLinkedList<E> implements List<E> {
 	@Override
 	public E remove(int index) {
 		E old = getNode(index).data;
-		if(index == 0) {
+		if (index == 0) {
 			head = head.next;
 		} else {
 			Node node = getNode(index - 1);
