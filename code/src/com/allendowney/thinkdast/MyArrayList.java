@@ -115,12 +115,8 @@ public class MyArrayList<T> implements List<T> {
 
 	@Override
 	public int indexOf(Object target) {
-
 		for (int i = 0; i <= size - 1; i++) {
-			if (target == null && array[i] == null) {
-				return i;
-			}
-			if (array[i].equals(target)) {
+			if (equals(target, array[i])) {
 				return i;
 			}
 		}
@@ -195,18 +191,10 @@ public class MyArrayList<T> implements List<T> {
 
 	@Override
 	public T remove(int index) {
-		if (index < 0 || index > size) {
-			throw new IndexOutOfBoundsException();
+		T previous = get(index);
+		for (int i = index; i < size - 1; i++) {
+			array[i] = array[i + 1];
 		}
-		T previous = array[index];
-		@SuppressWarnings("unchecked")
-		T[] copy = (T[]) new Object[array.length];
-
-		System.arraycopy(array, 0, copy, 0, index);
-		for (int i = size - 1; i > index; i--) {
-			copy[i - 1] = array[i];
-		}
-		array = copy;
 		size--;
 		return previous;
 	}
@@ -227,7 +215,7 @@ public class MyArrayList<T> implements List<T> {
 
 	@Override
 	public T set(int index, T element) {
-		T previous = this.get(index);
+		T previous = get(index);
 		array[index] = element;
 		return previous;
 	}
